@@ -1,0 +1,7 @@
+--Agregar Eliminación de elementos de carrito tmb se vea en las existencias *done
+--añadir estado de factura para ver en el historial 
+--Agregar validación usuario bloqueados tanto privado como publico
+--añadir ver detalles desde el historial del sitio privado
+--Añadir valoraciones por estrellas. Nuevos formatos de estrellas
+--cambiar logo del navegador y nombres
+--añadir validación de checkbox de terminos y condiciones

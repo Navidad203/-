@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap demo</title>
+  <link rel="icon" href="../../resources/img/logo_icon.png">
+  <link rel="stylesheet" href="../../resources/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../resources/css/public.css">
+</head>
+
+<body>
+
+  <!----------------------nav------------------------>
+  <nav id="navbare" class="navbar fixed-top navbar-expand-lg bg-body-tertiary">
+    <div id="navbare" class="container-fluid">
+      <a class="navbar-brand" href="#"><img src="../../resources/img/logo.png" height="70"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Pagina Principal</a>
+          </li>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="catalogo.html">Catálogo</a>
+          </li>
+          <li id="valoracionesNav" class="nav-item" hidden>
+            <a class="nav-link" href="valoraciones.html">Mis valoraciones</a>
+          </li>
+          <li id="historialNav" class="nav-item" hidden>
+            <a class="nav-link" href="historial_compra.html">Historial</a>
+          </li>
+        </ul>
+        <!--botones de registro e inicio sesion-->
+
+
+        <li id="carrito" class="nav-item" hidden>
+          <a class="nav-link" href="carrito.html" role="button"><img src="../../resources/img/cart.png" height="30"></a>
+        </li>
+
+
+
+        <li id="users" class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="../../resources/img/user.png" height="20">User1
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="perfil.html">check profile</a></li>
+            <li><a class="dropdown-item" href="login.html"> cerrar sesión</a></li>
+          </ul>
+
+        </li>
+        <!--
+          <li id="carrito" class="nav-item">
+            <a class="nav-link" href="carrito.html" role="button"><img src="../../resources/img/cart.png" height="30"></a>
+          </li>
+          
+          <li id="users" class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="../../resources/img/user.png" height="20">User1
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="perfil.html">check profile</a></li>
+              <li><a class="dropdown-item" href="login.html"> cerrar sesión</a></li>
+            </ul>
+          
+          </li>
+          -->
+      </div>
+
+    </div>
+    </div>
+  </nav>
+
+
+  <!-- CONTENIDO -->
+  <main>
+    <!--TITULO-->
+    <div class="container text-center">
+      <div class="title" class="row align-items-start">
+        <div class="col-0">
+          <h1>Bienvenido!!</h1>
+        </div>
+      </div>
+
+      <!--SECCIONES-->
+      <div class="row">
+        <div class="col-5">
+          <h2>Recomendados para ti</h2>
+          <div class="container text-center">
+            <div class="row align-items-start">
+              <div class="col">
+                <img class="coverM" src="../../resources/img/rezero.jpg">
+                <h4>Re:Zero</h4>
+              </div>
+              <div class="col">
+                <img class="coverM" src="../../resources/img/blackclover.jpg">
+                <h4>Black Clover</h4>
+              </div>
+              <div class="col">
+                <img class="coverM" src="../../resources/img/onepice.jfif">
+                <h4>onepice</h4>
+              </div>
+            </div>
+            <a type="button" href="catalogo.html" class="btn btn-secondary">Ver Todos</a>
+            <hr id="divider" lass="hr" />
+          </div>
+        </div>
+        <div class="col-2"></div>
+        <div class="col-5">
+          <h2>Agregados recientemente</h2>
+          <div class="container text-center">
+            <div class="row align-items-start">
+              <div class="col">
+                <img class="coverM" src="../../resources/img/rezero.jpg">
+                <h4>Re:Zero</h4>
+              </div>
+              <div class="col">
+                <img class="coverM" src="../../resources/img/blackclover.jpg">
+                <h4>Black Clover</h4>
+              </div>
+              <div class="col">
+                <img class="coverM" src="../../resources/img/onepice.jfif">
+                <h4>onepice</h4>
+              </div>
+            </div>
+            <a type="button" href="catalogo.html" class="btn btn-secondary">Ver Todos</a>
+            <hr id="divider" lass="hr" />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-5">
+          <h2>Puede que te interese</h2>
+          <div class="container text-center">
+            <div class="row align-items-start">
+              <div class="col">
+                <img class="coverM" src="../../resources/img/rezero.jpg">
+                <h4>Re:Zero</h4>
+              </div>
+              <div class="col">
+                <img class="coverM" src="../../resources/img/blackclover.jpg">
+                <h4>Black Clover</h4>
+              </div>
+              <div class="col">
+                <img class="coverM" src="../../resources/img/onepice.jfif">
+                <h4>onepice</h4>
+              </div>
+            </div>
+          </div>
+          <a type="button" href="catalogo.html" class="btn btn-secondary">Ver Todos</a>
+
+        </div>
+        <div class="col-2"></div>
+        <div class="col-5">
+          <h2>Ultimos debuts</h2>
+          <div class="container text-center">
+            <div class="row align-items-start">
+              <div class="col">
+                <img class="coverM" src="../../resources/img/rezero.jpg">
+                <h4>Re:Zero</h4>
+              </div>
+              <div class="col">
+                <img class="coverM" src="../../resources/img/blackclover.jpg">
+                <h4>Black Clover</h4>
+              </div>
+              <div class="col">
+                <img class="coverM" src="../../resources/img/onepice.jfif">
+                <h4>onepice</h4>
+              </div>
+            </div>
+            <a type="button" href="catalogo.html" class="btn btn-secondary">Ver Todos</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-------------------------footer-------------------------------->
+  <footer class="py-3 my-4">
+    <h2 class="media">Redes Sociales</h2>
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+      <li class="nav-item"><a href="https://www.facebook.com/" class="nav-link px-2 text-muted"><img class="iconS"
+            src="../../resources/img/face.png"></a></li>
+      <li class="nav-item"><a href="https://www.youtube.com/" class="nav-link px-2 text-muted"><img class="iconS"
+            src="../../resources/img/yutu.png"></a></li>
+      <li class="nav-item"><a href="https://www.instagram.com/" class="nav-link px-2 text-muted"><img class="iconS"
+            src="../../resources/img/insta.png"></a></li>
+      <li class="nav-item"><a href="https://twitter.com/home" class="nav-link px-2 text-muted"><img class="iconS"
+            src="../../resources/img/twit.png"></a></li>
+    </ul>
+    <p class="text-center">© 2023 7mangas, Inc</p>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"></script>
+  <script src="../../resources/js/bootstrap.min.js"></script>
+  <script src="../../resources/js/sweetalert.min.js"></script>
+  <script src="../../controllers/public/account.js"></script>
+  <script src="../../controllers/components.js"></script>
+
+</body>
+
+</html>

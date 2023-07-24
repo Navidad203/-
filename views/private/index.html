@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Inicio Sesión</title>
+  <link rel="icon" href="../../resources/img/logo_icon.png">
+  <link rel="stylesheet" href="../../resources/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../resources/css/public.css">
+</head>
+
+<body>
+  <nav id="navbare" class="navbar fixed-top navbar-expand-lg bg-body-tertiary">
+    <div id="navbare" class="container-fluid">
+      <a class="navbar-brand" href="#"><img src="../../resources/img/logo.png" height="70"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+
+  <!-- CONTENIDO -->
+  <main>
+    <div class="container text-center loginc">
+      <div class="row">
+        <div class="col-1">
+
+        </div>
+        <div class="col">
+          <div id="login2" class="form-floating">
+          </div>
+          <div hidden id="login-container">
+            <h1>Iniciar sesión</h1>
+            <form id="login-form">
+              <div id="login" class="form-floating mb-3">
+                <div class="row row-cols-auto">
+                  <div class="col-1">
+                    <img class="login_img" src="../../resources/img/perfil-del-usuario.png">
+                  </div>
+                  <div class="col-11">
+                    <!-----------------input de usuario------------->
+                    <input type="text" name="usuario" class="form-control" id="inputUs" placeholder="Usuario" required>
+                  </div>
+                </div>
+              </div>
+              <div id="login" class="form-floating mb-3">
+                <div class="row row-cols-auto">
+                  <div class="col-1">
+                    <img class="login_img2" src="../../resources/img/contrasena.png">
+                  </div>
+                  <div class="col-11">
+                    <!----------------------input de contraseña------------------>
+                    <input type="password" name="contrasenia" class="form-control" id="inputPass" placeholder="Contraseña" required>
+                  </div>
+                </div>
+              </div>
+              <!---------------------------Botón Submit---------------------------->
+              <button id="iniciar_sesion" type="submit" class="btn btn-primary btn-lg">Iniciar sesión</button>
+            </form>
+          </div>
+        </div>
+        <div class="col-1">
+
+        </div>
+
+      </div>
+    </div>
+
+    <!--------------------Sign UP form-->
+
+    <div class="container text-center loginc">
+      <div hidden id="signup-container">
+        <h1>Registrar</h1>
+        <form id="signup-form">
+          <div id="login" class="form-floating mb-3">
+            <div class="row row-cols-auto">
+              <div class="col-1">
+                <img class="login_img" src="../../resources/img/perfil-del-usuario.png">
+              </div>
+              <div class="col-11">
+                <!-----------------input de usuario------------->
+                <input name="usuario" type="text" class="form-control" id="inputUsS" placeholder="Usuario" required>
+              </div>
+            </div>
+          </div>
+          <div id="login" class="form-floating mb-3">
+            <div class="row row-cols-auto">
+              <div class="col-1">
+                <img class="login_img2" src="../../resources/img/contrasena.png">
+              </div>
+              <div class="col-11">
+                <!----------------------input de contraseña------------------>
+                <input type="password" class="form-control" id="inputPassS" name="contrasenia" placeholder="Contraseña" required>
+                <input type="password" class="form-control" id="CPass" name="conContra" placeholder="Confirmar Contraseña" required>
+                <input type="number" class="form-control" id="number" name="estado" placeholder="estado" required value="1" hidden>
+              </div>
+            </div>
+          </div>
+          <!---------------------------Botón Submit---------------------------->
+          <button id="registrar" type="submit" class="btn btn-primary btn-lg">Registrar</button>
+        </form>
+      </div>
+    </div>
+
+  </main>
+  <!------------footer------------------->
+  <footer class="py-3 my-4">
+    <h2 class="media">Redes Sociales</h2>
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+      <li class="nav-item"><a href="https://www.facebook.com/" class="nav-link px-2 text-muted"><img class="iconS"
+            src="../../resources/img/face.png"></a></li>
+      <li class="nav-item"><a href="https://www.youtube.com/" class="nav-link px-2 text-muted"><img class="iconS"
+            src="../../resources/img/yutu.png"></a></li>
+      <li class="nav-item"><a href="https://www.instagram.com/" class="nav-link px-2 text-muted"><img class="iconS"
+            src="../../resources/img/insta.png"></a></li>
+      <li class="nav-item"><a href="https://twitter.com/home" class="nav-link px-2 text-muted"><img class="iconS"
+            src="../../resources/img/twit.png"></a></li>
+    </ul>
+    <p class="text-center">© 2023 7mangas, Inc</p>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+  integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+  crossorigin="anonymous"></script>
+  <script src="../../resources/js/sweetalert.min.js"></script>
+  <script src="../../controllers/private/account.js"></script>
+  <script src="../../controllers/private/index.js"></script>
+  <script src="../../controllers/components.js"></script>
+  <!--<script src="../../controllers/components.js"></script>
+  //<script src="../../controllers/account.js"></script>-->
+</body>
+
+</html>

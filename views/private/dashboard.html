@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard</title>
+  <link rel="icon" href="../../resources/img/logo_icon.png">
+  <link rel="stylesheet" href="../../resources/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../resources/css/public.css">
+</head>
+
+<body>
+  <!------------------------------------nav------------------------------->
+  <nav id="navbare" class="navbar fixed-top navbar-expand-lg bg-body-tertiary">
+    <div id="navbare" class="container-fluid">
+      <a class="navbar-brand" href="#"><img src="../../resources/img/logo.png" height="70"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="dashboard.html">Pagina Principal</a>
+          </li>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="inventario.html">Gestión de inventario</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="gestion_manga.html">gestión mangas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="gestion_usuarios.html">Gestión de usuarios</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="gestion_clientes.html">Gestión de clientes</a>
+          </li>
+        </ul>
+        <li id="users" class="nav-item dropdown">
+          <a id="USerLog" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <img src="../../resources/img/user.png" height="20">Admin1
+          </a>
+          <ul class="dropdown-menu">
+            <li><a onclick="logOut()" class="dropdown-item"> cerrar sesión</a></li>
+          </ul>
+        </li>
+      </div>
+    </div>
+  </nav>
+
+  <!-- CONTENIDO -->
+  <main class="container">
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+
+      <!-- Título del contenido principal -->
+      <h3 class="justify-content-center">Bienvenido</h3>
+      <!-- Se muestran gráficos de acuerdo con algunos datos disponibles en la base de datos -->
+      <div class="row">
+          <div class="col s12 m6 l4">
+              <!-- Se muestra un gráfico de barra con la cantidad de productos por categoría -->
+              <canvas id="chart1"></canvas>
+          </div>
+          <div class="col s12 m6 l4">
+              <!-- Se muestra un gráfico de pastel con el porcentaje de productos por categoría -->
+              <canvas id="chart2"></canvas>
+          </div>
+          <div class="col s12 m6 l4">
+            <!-- Se muestra un gráfico de pastel con el porcentaje de productos por categoría -->
+            <canvas id="chart3"></canvas>
+        </div>
+      </div>      
+      <!-- Importación de la librería para generar los gráficos en tiempo real. Para más información https://www.chartjs.org/ -->
+      <script src="../../resources/js/chart.umd.min.js"></script>
+  </main>
+
+  <!---------------footer------------------------>
+
+  <footer class="py-3 my-4">
+    <h2 class="media">Redes Sociales</h2>
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+      <li class="nav-item"><a href="https://www.facebook.com/" class="nav-link px-2 text-muted"><img class="iconS"
+            src="../../resources/img/face.png"></a></li>
+      <li class="nav-item"><a href="https://www.youtube.com/" class="nav-link px-2 text-muted"><img class="iconS"
+            src="../../resources/img/yutu.png"></a></li>
+      <li class="nav-item"><a href="https://www.instagram.com/" class="nav-link px-2 text-muted"><img class="iconS"
+            src="../../resources/img/insta.png"></a></li>
+      <li class="nav-item"><a href="https://twitter.com/home" class="nav-link px-2 text-muted"><img class="iconS"
+            src="../../resources/img/twit.png"></a></li>
+    </ul>
+    <p class="text-center">© 2022 Company, Inc</p>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"></script>
+  <script src="../../resources/js/bootstrap.min.js"></script>
+  <script src="../../controllers/components.js"></script>
+  <script src="../../resources/js/sweetalert.min.js"></script>
+  <script src="../../controllers/private/account.js"></script>
+  <script src="../../controllers/private/dashboard.js"></script>
+
+</body>
+
+</html>

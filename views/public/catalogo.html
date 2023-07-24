@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link rel="icon" href="../../resources/img/logo_icon.png">
+    <link rel="stylesheet" href="../../resources/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../resources/css/public.css">
+</head>
+
+<body>
+    <nav id="navbare" class="navbar fixed-top navbar-expand-lg bg-body-tertiary">
+        <div id="navbare" class="container-fluid">
+            <a class="navbar-brand" href="#"><img src="../../resources/img/logo.png" height="70"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Pagina Principal</a>
+                    </li>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="catalogo.html">Catálogo</a>
+                    </li>
+                    <li id="valoracionesNav" class="nav-item" hidden>
+                        <a class="nav-link" href="valoraciones.html">Mis valoraciones</a>
+                    </li>
+                    <li id="historialNav" class="nav-item" hidden>
+                        <a class="nav-link" href="historial_compra.html">Historial</a>
+                    </li>
+                </ul>
+                <!--botones de registro e inicio sesion-->
+
+
+                <li id="carrito" class="nav-item" hidden>
+                    <a class="nav-link" href="carrito.html" role="button"><img src="../../resources/img/cart.png"
+                            height="30"></a>
+                </li>
+
+
+
+                <li id="users" class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <img src="../../resources/img/user.png" height="20">User1
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="perfil.html">check profile</a></li>
+                        <li><a class="dropdown-item" href="login.html"> cerrar sesión</a></li>
+                    </ul>
+
+                </li>
+                <!--
+              <li id="carrito" class="nav-item">
+                <a class="nav-link" href="carrito.html" role="button"><img src="../../resources/img/cart.png" height="30"></a>
+              </li>
+              
+              <li id="users" class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <img src="../../resources/img/user.png" height="20">User1
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="perfil.html">check profile</a></li>
+                  <li><a class="dropdown-item" href="login.html"> cerrar sesión</a></li>
+                </ul>
+              
+              </li>
+              -->
+            </div>
+
+        </div>
+        </div>
+    </nav>
+
+    <!-- CONTENIDO -->
+    <article>
+        <h2 class="title"></h2>
+        <!--nav-->
+        <div class="container text-center">
+            <div class="row align-items-start">
+                <div class="col">
+                    <!--busqueda parametrizada-->
+                    <form id="search" role="search">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <div class="row">
+                                <li class="nav-item dropdown col-sm-6 col-md-6 col-lg-3">
+                                    <select class="form-select dropdown_manga field_manga" name="genero" id="generoSR"
+                                        aria-label="Default select example">
+                                        <option selected>Genero</option>
+                                        <option value="1">Asaura</option>
+                                        <option value="2">aka akasaka</option>
+                                        <option value="3">Tappei Nagatsuki</option>
+                                    </select>
+                                </li>
+                                <li class="nav-item dropdown col-sm-6 col-md-6 col-lg-3 text-center">
+                                    <select class="form-select dropdown_manga field_manga" name="demografia"
+                                        id="demografiaSR" aria-label="Default select example">
+                                        <option selected>Demografia</option>
+                                        <option value="1">Asaura</option>
+                                        <option value="2">aka akasaka</option>
+                                        <option value="3">Tappei Nagatsuki</option>
+                                    </select>
+                                </li>
+                                <li class="nav-item dropdown col-sm-6 col-md-6 col-lg-3 text-center">
+                                    <select class="form-select dropdown_manga field_manga" name="autor" id="autorSR"
+                                        aria-label="Default select example">
+                                        <option selected>Autor</option>
+                                        <option value="1">Asaura</option>
+                                        <option value="2">aka akasaka</option>
+                                        <option value="3">Tappei Nagatsuki</option>
+                                    </select>
+                                </li>
+                                <li class="nav-item dropdown col-sm-6 col-md-6 col-lg-3 text-center">
+                                    <select class="form-select dropdown_manga field_manga" name="revista" id="revistaSR"
+                                        aria-label="Default select example">
+                                        <option selected>Revista</option>
+                                        <option value="1">Asaura</option>
+                                        <option value="2">aka akasaka</option>
+                                        <option value="3">Tappei Nagatsuki</option>
+                                    </select>
+                                </li>
+                                <div class="row">
+                                    <div class="row">
+                                        <input id="search_input" class="form-control me-2 searchin col-3 text-center"
+                                            type="search" name="search" placeholder="Search" aria-label="Search">
+                                        <button class="btn btn-success col-3" type="submit">Buscar</button>
+                                    </div>
+
+                                </div>
+
+                        </ul>
+
+
+                    </form>
+                    <div id="manga_but" class="col 13">
+                        <h1 id="titulo_volumenes" hidden>Volumenes</h1>
+                        <hr>
+
+                        <!--------------------------------------modals----------------------------------->
+                        <!------------- INSERT-------------->
+                        <div class="modal fade" id="manga_mod" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Información del manga</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <!-------formulario mangas------->
+                                    <form id="mangas_form">
+
+                                        <div class="modal-body">
+
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <img id="imagen_producto" class="coverM" src="">
+                                                    <!--rute-->
+                                                    <input class="form-control form-control-sm" name="ruta" id="ruta"
+                                                        type="text" hidden>
+                                                    <label for="formFileSm" class="form-label"></label>
+                                                    <!--input imagen-->
+                                                    <input class="form-control" name="archivo" id="archivo" type="file"
+                                                        hidden>
+                                                    <div class="row justify-content-center">
+                                                        <!--input anio-->
+                                                        <h5>Año de publicación</h5>
+                                                        <p name="anio" id="anio"></p>
+
+                                                        <!--input volumenes-->
+                                                        <h5>Total de volúmenes</h5>
+                                                        <p id="volumenes" name="volumenes"></p>
+
+                                                    </div>
+                                                </div>
+                                                <div id="col-2resp" class="col-8">
+                                                    <div class="row ">
+                                                        <div class="col text-start">
+                                                            <!--input id hidden-->
+                                                            <input id="id" class="form-control" type="text"
+                                                                placeholder="Titulo..." name="id"
+                                                                aria-label="default input example" hidden></input>
+                                                            <!--input titulo-->
+                                                            <h4 id="titulo" name="titulo"></h4>
+                                                        </div>
+                                                    </div>
+                                                    <hr id="divider_manga" lass="hr" />
+                                                    <div id="manga_row" class="row text-start">
+                                                        <!--input select autores-->
+                                                        <div class="col-4">
+                                                            <p>Autor:</p>
+                                                        </div>
+                                                        <div class="col">
+                                                            <h5 name="autor" id="autor"></h5>
+                                                        </div>
+
+                                                    </div>
+                                                    <div id="manga_row" class="row text-start">
+                                                        <!--input select demografia-->
+                                                        <div class="col-4">
+                                                            <p>Demografía:</p>
+                                                        </div>
+                                                        <div class="col">
+                                                            <h5 name="demografia" id="demografia"></h5>
+                                                        </div>
+
+
+                                                    </div>
+                                                    <div id="manga_row" class="row text-start">
+                                                        <div class="col-3 text-start">
+                                                            <h5>Descripción</h5>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <!--input Descripcuion-->
+                                                        <div id="" class="col-10 text-start manga_container ">
+                                                            <section id="descripcion" name="descripcion"
+                                                                class="form-control manga_container descripcion-public overflow-auto "
+                                                                id="exampleFormControlTextarea1"
+                                                                placeholder="Descripción..." rows="6" required
+                                                                maxlength="1000"></section>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <hr id="divider_manga_bot" lass="hr" />
+                                            <div class="row">
+                                                <div class="col-4 text-start">
+                                                    <div id="formmargin" class="row row-cols-auto">
+                                                        <div class="col-4">
+                                                            <p>estado:</p>
+                                                        </div>
+                                                        <!--select estado-->
+                                                        <h5 name="estado" id="estado"></h5>
+                                                    </div>
+                                                    <div id="formmargin" class="row row-cols-auto">
+                                                        <div class="col">
+
+                                                        </div>
+                                                        <!--select revista-->
+                                                        <p>revista:</p>
+                                                        <h5 name="revista" id="revista"></h5>
+                                                    </div>
+
+
+                                                </div>
+                                                <div class="col-8 text-start">
+                                                    <h5>Generos</h5>
+                                                    <!--<input id="idDetalle" class="form-control" type="text"
+                                                    placeholder="Titulo..." name="idDetalle"
+                                                    aria-label="default input example" hidden>-->
+                                                    <div id="col-2resp" class="row">
+                                                        <div id="manga_container_genders" class="col-10 text-start">
+                                                            <div id="container_genders"
+                                                                class="row row-cols-auto container text-center">
+
+
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <!--BOTONES-->
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Salir</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Modal Añadir detalles al carrito -->
+                        <div class="modal fade" id="ValosPro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h1 class="modal-title fs-5" id="exampleModalLabel">Valoraciones</h1>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div id="valosBody" class="modal-body">
+                                    <div class="row">
+                                        <div class="col-4 text-start">
+                                            <h5>Calificación</h5>
+                                        </div>
+                                        <div class="col-8 text-start">
+                                            <h5>Comentario</h5>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-4 text-start">
+                                            <p>5</p>
+                                        </div>
+                                        <div class="col-8 text-start">
+                                            <div id="" class="col-10 text-start manga_container ">
+                                                <section id="descripcion" name="descripcion"
+                                                    class="form-control manga_container descripcion-public overflow-auto "
+                                                    id="exampleFormControlTextarea1"
+                                                    placeholder="Descripción..." rows="6" required
+                                                    maxlength="1000">sadasdsad</section>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-4 text-start">
+                                            <p>5</p>
+                                        </div>
+                                        <div class="col-8 text-start">
+                                            <div id="" class="col-10 text-start manga_container ">
+                                                <section id="descripcion" name="descripcion"
+                                                    class="form-control manga_container descripcion-public overflow-auto "
+                                                    id="exampleFormControlTextarea1"
+                                                    placeholder="Descripción..." rows="6" required
+                                                    maxlength="1000">sadasdsad</section>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    
+                                 <!-- <div class="row">
+                                    <div class="col-2">
+                                        Valoracion
+                                    </div>
+                                    <div class="col-10">
+                                        Comentario
+                                    </div>
+                                  </div>-->
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                  <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                        <!-- Modal Ver Valoraciones de producto -->
+                        <div class="modal fade" id="DetallesCar" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <form id="AniadirForm">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Añadir al carrito</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <!--formulario añadir producto al carrito-->
+                                            <div class="row">
+                                                <div class="col">
+                                                    <img id="coverCar" class="coverM " src="">
+                                                    <h5 id="tituloAniadir"></h5>
+                                                </div>
+                                                <div class="col">
+                                                    <p>*solo puedes pedir maximo 10 productos*</p>
+                                                    <input id="cantidad" name="cantidad" class=" form-control"
+                                                        type="number" placeholder="cantidad"
+                                                        aria-label="default input example" max="10" required>
+                                                </div>
+
+                                            </div>
+
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-danger"
+                                                data-bs-dismiss="modal">Cancelar</button>
+                                            <button type="submit" class="btn btn-primary">Añadir al carrito</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+
+
+                        <div class="container text-center">
+                            <div class="row" id="mangas_row">
+                            </div>
+                        </div>
+
+    </article>
+    <!-----------------footer------------------------>
+    <footer class="py-3 my-4">
+        <h2 class="media">Redes Sociales</h2>
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item"><a href="https://www.facebook.com/" class="nav-link px-2 text-muted"><img class="iconS"
+                        src="../../resources/img/face.png"></a></li>
+            <li class="nav-item"><a href="https://www.youtube.com/" class="nav-link px-2 text-muted"><img class="iconS"
+                        src="../../resources/img/yutu.png"></a></li>
+            <li class="nav-item"><a href="https://www.instagram.com/" class="nav-link px-2 text-muted"><img
+                        class="iconS" src="../../resources/img/insta.png"></a></li>
+            <li class="nav-item"><a href="https://twitter.com/home" class="nav-link px-2 text-muted"><img class="iconS"
+                        src="../../resources/img/twit.png"></a></li>
+        </ul>
+        <p class="text-center">© 2023 7mangas, Inc</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="../../resources/js/bootstrap.min.js"></script>
+    <script src="../../resources/js/sweetalert.min.js"></script>
+    <script src="../../controllers/public/account.js"></script>
+    <script src="../../controllers/components.js"></script>
+    <script src="../../controllers/public/catalogo.js"></script>
+</body>
+
+</html>

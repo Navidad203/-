@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap demo</title>
+  <link rel="icon" href="../../resources/img/logo_icon.png">
+  <link rel="stylesheet" href="../../resources/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../resources/css/public.css">
+</head>
+
+<body>
+  <!-------------nav--------------------------->
+  <nav id="navbare" class="navbar fixed-top navbar-expand-lg bg-body-tertiary">
+    <div id="navbare" class="container-fluid">
+      <a class="navbar-brand" href="#"><img src="../../resources/img/logo.png" height="70"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Pagina Principal</a>
+          </li>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="catalogo.html">Catálogo</a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- CONTENIDO -->
+  <main>
+    <form id="register">
+      <!--Centenedor del formulario-->
+      <div class="container text-left loginc">
+
+        <div id="registrarse" class="form-floating">
+          <h1 class="text-center">Registrarse</h1>
+        </div>
+        <!--Fila-->
+        <div class="row">
+          <!--Nombre campo-->
+          <div class="col">
+            <div class="mb-3">
+              <label for="formGroupExampleInput" class="form-label">Nombre</label>
+              <!--Nombre input-->
+              <input type="text" maxlength="50" id="nombre" name="nombre" class="form-control" required>
+            </div>
+          </div>
+          <!--Telefono campo-->
+          <div class="col">
+            <div class="mb-3">
+              <label for="formGroupExampleInput" class="form-label">Teléfono</label>
+              <!--Telefono Input-->
+              <input type="tel" id="telefono"  placeholder="0000-0000" name="telefono" class="form-control" required>
+            </div>
+          </div>
+        </div>
+        <!--Fila-->
+        <div class="row">
+          <!--Apellido campo-->
+          <div class="col">
+            <div class="mb-3">
+              <label for="formGroupExampleInput" class="form-label">Apellido</label>
+              <!--Apellido Input-->
+              <input type="text" id="apellido" name="apellido" class="form-control" required maxlength="35">
+            </div>
+          </div>
+          <!--Correo campo-->
+          <div class="col">
+            <div class="mb-3">
+              <label for="formGroupExampleInput" class="form-label">Correo</label>
+              <!--Correo Input-->
+              <input type="email" id="correo" name="correo" class="form-control" maxlength="100" required>
+            </div>
+          </div>
+        </div>
+        <!--Fila-->
+        <div class="row">
+          <!--campos del usuario-cliente-->
+          <div class="col">
+            <div class="mb-3">
+              <label for="formGroupExampleInput" class="form-label">Usuario</label>
+              <!--Usuario Input-->
+              <input type="text" id="usuario" name="usuario" class="form-control" maxlength="50" required>
+              <!--Usuario contraseña-->
+              <label for="formGroupExampleInput" class="form-label">Contraseña</label>
+              <input type="password" id="password" name="password" class="form-control" required>
+              <!--confirmar contraseña-->
+              <label for="formGroupExampleInput" class="form-label">Confirmar contraseña</label>
+              <input type="password" id="passwordCon" name="passwordCon" class="form-control" required>
+            </div>
+          </div>
+          <!--campo dirección-->
+          <div class="col">
+            <div class="mb-3">
+              <label for="formGroupExampleInput" class="form-label">Dirección</label>
+              <!--Dirección Input-->
+              <textarea class="form-control" id="direccion" name="direccion" maxlength="100" rows="3" required></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--contenedor checkbox-->
+      <div class="container text-center">
+
+        <button class="btn btn-primary" type="submit">Registrarse</button>
+        <div>
+          <a href="login.html">Ya tienes una cuenta? Iniciar Sesión</a>
+        </div>
+      </div>
+    </form>
+  </main>
+  <!----------------------------footer------------------------>
+  <footer class="py-3 my-4">
+    <h2 class="media">Redes Sociales</h2>
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+      <li class="nav-item"><a href="https://www.facebook.com/" class="nav-link px-2 text-muted"><img class="iconS"
+            src="../../resources/img/face.png"></a></li>
+      <li class="nav-item"><a href="https://www.youtube.com/" class="nav-link px-2 text-muted"><img class="iconS"
+            src="../../resources/img/yutu.png"></a></li>
+      <li class="nav-item"><a href="https://www.instagram.com/" class="nav-link px-2 text-muted"><img class="iconS"
+            src="../../resources/img/insta.png"></a></li>
+      <li class="nav-item"><a href="https://twitter.com/home" class="nav-link px-2 text-muted"><img class="iconS"
+            src="../../resources/img/twit.png"></a></li>
+    </ul>
+    <p class="text-center">© 2023 7mangas, Inc</p>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"></script>
+    <script src="../../resources/js/bootstrap.min.js"></script>
+  <script src="../../resources/js/sweetalert.min.js"></script>
+  <script src="../../controllers/components.js"></script>
+  <script src="../../controllers/public/account.js"></script>
+  <script src="../../controllers/public/register.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap demo</title>
+  <link rel="icon" href="../../resources/img/logo_icon.png">
+  <link rel="stylesheet" href="../../resources/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../resources/css/public.css">
+</head>
+
+<body>
+  <!----------------------------nav----------------------->
+  <nav id="navbare" class="navbar fixed-top navbar-expand-lg bg-body-tertiary">
+    <div id="navbare" class="container-fluid">
+      <a class="navbar-brand" href="#"><img src="../../resources/img/logo.png" height="70"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Pagina Principal</a>
+          </li>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="catalogo.html">Catálogo</a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+
+  <!-- CONTENIDO -->
+  <main>
+    <!--Componente contenedor del formulario-->
+    <div class="container text-center loginc">
+      <!--etiqueta form del formulario de inicio de sesión-->
+      <form id="login">
+        <!--fila row para el formulario-->
+        <div class="row justify-content-center">
+          <!--columna para el formulario-->
+          <div class="col-10">
+            <!--Encabezado del formulario-->
+            <div id="login2" class="form-floating">
+              <h1>Iniciar sesión</h1>
+            </div>
+            <!--Campo de usuario-->
+            <div class="form-floating mb-3">
+              <div class="row row-cols-auto">
+                <div class="col-1">
+                  <!--imagen-->
+                  <img class="login_img" src="../../resources/img/perfil-del-usuario.png">
+                </div>
+                <div class="col-11">
+                  <!--Input ingresar usuario-->
+                  <input type="text" name="usuario" class="form-control" id="floatingInput" placeholder="Usuario" >
+                </div>
+              </div>
+            </div>
+            <!--Campo de contraseña-->
+            <div class="form-floating mb-3">
+              <div class="row row-cols-auto">
+                <div class="col-1">
+                  <img class="login_img" src="../../resources/img/contrasena.png">
+                </div>
+                <div class="col-11">
+                  <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Contraseña">
+                </div>
+              </div>
+            </div>
+            <!--boton submit-->
+            <button id="iniciar_sesion" href="index.html" type="submit" class="btn btn-primary btn-lg">Iniciar
+              sesión</button>
+              <!--recuperación de contraseña-->
+            <div id="txtlink" class="form-floating">
+              <a href="#">¿Olvidó su contraseña?</a>
+            </div>
+            <!--formulario de registro-->
+            <div id="iniciar_sesion2" class="form-floating">
+              <a href="sing_up.html">Crear cuenta</a>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </main>
+  <!-------------------------footer------------------------------>
+  <footer class="py-3 my-4">
+    <h2 class="media">Redes Sociales</h2>
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+      <li class="nav-item"><a href="https://www.facebook.com/" class="nav-link px-2 text-muted"><img class="iconS"
+            src="../../resources/img/face.png"></a></li>
+      <li class="nav-item"><a href="https://www.youtube.com/" class="nav-link px-2 text-muted"><img class="iconS"
+            src="../../resources/img/yutu.png"></a></li>
+      <li class="nav-item"><a href="https://www.instagram.com/" class="nav-link px-2 text-muted"><img class="iconS"
+            src="../../resources/img/insta.png"></a></li>
+      <li class="nav-item"><a href="https://twitter.com/home" class="nav-link px-2 text-muted"><img class="iconS"
+            src="../../resources/img/twit.png"></a></li>
+    </ul>
+    <p class="text-center">© 2023 7mangas, Inc</p>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"></script>
+  <script src="../../resources/js/bootstrap.min.js"></script>
+  <script src="../../resources/js/sweetalert.min.js"></script>
+  <script src="../../controllers/components.js"></script>
+  <script src="../../controllers/public/account.js"></script>
+  <script src="../../controllers/public/login.js"></script>
+
+</body>
+
+</html>

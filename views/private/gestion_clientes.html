@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gestión clientes</title>
+  <link rel="icon" href="../../resources/img/logo_icon.png">
+  <link rel="stylesheet" href="../../resources/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../resources/css/public.css">
+</head>
+
+<body>
+  <!--navbar-->
+  <nav id="navbare" class="navbar fixed-top navbar-expand-lg bg-body-tertiary">
+    <div id="navbare" class="container-fluid">
+      <a class="navbar-brand" href="#"><img src="../../resources/img/logo.png" height="70"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="dashboard.html">Pagina Principal</a>
+          </li>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="inventario.html">Gestión de inventario</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="gestion_manga.html">gestión mangas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="gestion_usuarios.html">Gestión de usuarios</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="gestion_clientes.html">Gestión de clientes</a>
+          </li>
+        </ul>
+        <li id="users" class="nav-item dropdown">
+          <a id="USerLog" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <img src="../../resources/img/user.png" height="20">Admin1
+          </a>
+          <ul class="dropdown-menu">
+            <li><a onclick="logOut()" class="dropdown-item"> cerrar sesión</a></li>
+          </ul>
+        </li>
+      </div>
+    </div>
+  </nav>
+
+  <!-- CONTENIDO -->
+  <!----------------------------------------MODALS------------------------------------------->
+  <!----------------------------------------insert------------------------------------------->
+
+  <!--MODAL MODIFICAR-->
+
+  <!-- Modal -->
+  <div class="modal fade modal-lg" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <form id="save-form">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Modificar clientes</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+
+            <div id="row2_inv" class="row">
+              <div class="col">
+                <img src="../../resources/img/no-image-icon-6.png" alt="..." height="150px">
+                <input type="file" id="pfp" name="pfp">
+              </div>
+              <div class="col">
+                <h5>Nombre </h5>
+                
+                <input class="form-control inputext" type="text" id="nombre" name="nombre" maxlength="35" required>
+              </div>
+              <div class="col">
+                <h5>Apellido</h5>
+                <input class="form-control inputext" type="text" id="apellido" name="apellido" maxlength="35" required>
+              </div>
+              <div class="col">
+                <h5>Correo</h5>
+                <input class="form-control inputext" type="text" id="correo" name="correo" maxlength="100" required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <h5></h5>
+                <input class="form-control inputext" type="hidden" id="id" name="id" required>
+              </div>
+              <div class="col">
+                <h5>telefono</h5>
+                <input class="form-control inputext" type="text" id="telefono" name="telefono" maxlength="9" required>
+              </div>
+              <div class="col-8">
+                <h5>Direccion </h5>
+                <input type="text" id="direccion" name="direccion" class="form-control inputext"
+                  placeholder="Descripción..." rows="6" maxlength="100" required></input>
+              </div>
+            </div>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button type="submit" class="btn btn-primary">Actualizar</button>
+            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalus"
+              onclick="openUpdateUs()">Usuario
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!--Modal para gestion de ususarios-->
+  <div class="modal fade modal-lg" id="modalus" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <form id="users-form">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Modificar usuarios</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+
+            <div id="row2_inv" class="row">
+              <div class="col">
+                <h5>Usuario </h5>
+                <input class="form-control inputext" type="text" id="idUs" name="idUs" hidden>
+                <input class="form-control inputext" type="text" id="usuario" name="usuario" maxlength="50" required>
+              </div>
+              <div class="col">
+                <h5>Estado</h5>
+                <select class="form-select dropdown_manga field_manga" name="estado" id="estado"
+                  aria-label="Default select example">
+                  <option selected>Estado</option>
+                  <option value="1">Asaura</option>
+                  <option value="2">aka akasaka</option>
+                  <option value="3">Tappei Nagatsuki</option>
+                </select>
+              </div>
+              <div class="col">
+                <h5>Cliente</h5>
+                <input class="form-control inputext" type="text" id="cliente" name="cliente">
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button type="submit" class="btn btn-primary">Actualizar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!--modal tabla usuario-->
+  <div class="modal fade modal-lg" id="modalus" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <form id="save-form">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Modificar usuarios</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+
+            <table class="table">
+              <thead>
+                <tr>
+                  <th hidden>id</th>
+                  <th scope="col" hidden>id</th>
+                  <th scope="col">Usuario</th>
+                  <th scope="col">estado</th>
+                  <th scope="col">nombre</th>
+                  <th scope="col">apellido</th>
+                </tr>
+              </thead>
+              <tbody id="tbody-users">
+              </tbody>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button type="submit" class="btn btn-primary">Actualizar</button>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Usuario
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="user_container" class="container-sm">
+    <div class="row">
+
+      <div id="inv_nav_element" class="col-sm-6">
+        <form  id="search">
+          <input id="search_input" class="form-control" type="search" placeholder="Search" aria-label="Search"
+            id="buscar" name="buscar">
+            <button class="btn btn-success col-3" role="button" type="submit">Buscar</button>
+        </form>
+      </div>
+
+    </div>
+
+
+    <!--tabla-->
+    <div>
+      <div class="table-responsive table us">
+        <table class="table">
+          <thead>
+            <tr>
+              <th hidden>id</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Apellido</th>
+              <th scope="col">Correo</th>
+              <th scope="col">Teléfono</th>
+              <th scope="col">Dirección</th>
+              <th scope="col">Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="tbody-rows">
+            <tr>
+              <td>Adam</td>
+              <td>Sandler</td>
+              <td>Adam23</td>
+              <td>activo</td>
+              <td>
+                <button href="../index.html" data-bs-toggle="modal" data-bs-target="#modi_modal"><img id="img_ico"
+                    src="../../resources/img/pencil.png">
+                </button>
+                <button href="../index.html"><img id="img_ico" src="../../resources/img/trash-can.png">
+                </button>
+                <button href="../index.html"> <img id="img_ico" src="../../resources/img/report.png">
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>Adam</td>
+              <td>Sandler</td>
+              <td>Adam23</td>
+              <td>activo</td>
+              <td>
+                <button href="../index.html" data-bs-toggle="modal" data-bs-target="#modi_modal"><img id="img_ico"
+                    src="../../resources/img/pencil.png">
+                </button>
+                <button href="../index.html"><img id="img_ico" src="../../resources/img/trash-can.png">
+                </button>
+                <button href="../index.html"> <img id="img_ico" src="../../resources/img/report.png">
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+
+  </main>
+  <footer class="py-3 my-4">
+    <h2 class="media">Redes Sociales</h2>
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+      <li class="nav-item"><a href="https://www.facebook.com/" class="nav-link px-2 text-muted"><img class="iconS"
+            src="../../resources/img/face.png"></a></li>
+      <li class="nav-item"><a href="https://www.youtube.com/" class="nav-link px-2 text-muted"><img class="iconS"
+            src="../../resources/img/yutu.png"></a></li>
+      <li class="nav-item"><a href="https://www.instagram.com/" class="nav-link px-2 text-muted"><img class="iconS"
+            src="../../resources/img/insta.png"></a></li>
+      <li class="nav-item"><a href="https://twitter.com/home" class="nav-link px-2 text-muted"><img class="iconS"
+            src="../../resources/img/twit.png"></a></li>
+    </ul>
+    <p class="text-center">© 2023 7mangas, Inc</p>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"></script>
+  <script src="../../resources/js/bootstrap.min.js"></script>
+  <script src="../../resources/js/sweetalert.min.js"></script>
+  <script src="../../controllers/components.js"></script>
+  <script src="../../controllers/private/account.js"></script>
+  <script src="../../controllers/private/usuario_cliente.js"></script>
+
+</body>
+
+</html>

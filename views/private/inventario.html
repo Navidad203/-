@@ -1,0 +1,684 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gestión de inventario</title>
+  <link rel="icon" href="../../resources/img/logo_icon.png">
+  <link rel="stylesheet" href="../../resources/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../resources/css/public.css">
+</head>
+
+<body>
+  <nav id="navbare" class="navbar fixed-top navbar-expand-lg bg-body-tertiary">
+    <div id="navbare" class="container-fluid">
+      <a class="navbar-brand" href="#"><img src="../../resources/img/logo.png" height="70"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="dashboard.html">Pagina Principal</a>
+          </li>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="inventario.html">Gestión de inventario</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="gestion_manga.html">gestión mangas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="gestion_usuarios.html">Gestión de usuarios</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="gestion_clientes.html">Gestión de clientes</a>
+          </li>
+        </ul>
+        <li id="users" class="nav-item dropdown">
+          <a id="USerLog" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <img src="../../resources/img/user.png" height="20">Admin1
+          </a>
+          <ul class="dropdown-menu">
+            <li><a onclick="logOut()" class="dropdown-item"> cerrar sesión</a></li>
+          </ul>
+        </li>
+      </div>
+    </div>
+  </nav>
+
+
+
+  <!-- CONTENIDO -->
+  <main>
+    <!----------------------------------------MODALS------------------------------------------->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!----------------------------------------insert------------------------------------------->
+    <div class="modal fade modal-lg" id="insert_modal" tabindex="-1" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog">
+        <form id="save-form">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar/Actualizar Producto</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                onclick="EliminarPreview()"></button>
+            </div>
+            <!--cuerpo del modal-->
+
+            <div class="modal-body">
+              <div class="row">
+                <div class="col">
+                  <!--input select mangas-->
+                  <select class="mangaselect btn btn-light dropdown-toggle" name="manga" id="manga"
+                    aria-label="Default select example">
+                    <option selected>Manga</option>
+                    <option value="1"></option>
+                    <option value="2">
+                    </option>
+                    <option value="3">Tappei Nagatsuki</option>
+                  </select>
+                </div>
+                <div class="col">
+                  <div class="row">
+                    <div class="col-2">
+                      <img id="img_ico" src="../../resources/img/catalog.png">
+                    </div>
+                    <div class="col text-start">
+                      <h5>cantidad</h5>
+                    </div>
+                    <div class="col">
+                      <!--input cantidad-->
+                      <input id="cantidad" name="cantidad" class=" form-control" type="number" placeholder="cantidad"
+                        aria-label="default input example" required>
+                    </div>
+
+
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="row">
+                    <div class="col">
+                      <button type="button" id="operator_plus">
+                        <div class="col text-center">
+                          <h4>+</h4>
+                        </div>
+                      </button>
+                      <!--input sumar-->
+                      <input id="sumar" class="operadores form-control" type="text" placeholder="0"
+                        aria-label="default input example">
+                    </div>
+                    <div class="col">
+                      <button type="button" id="operator_minus">
+                        <div class="col text-center">
+                          <h4>-</h4>
+                        </div>
+                      </button>
+                      <!--input restar-->
+                      <input id="restar" class="operadores form-control" type="number" placeholder="0"
+                        aria-label="default input example" max="0">
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="row2_inv" class="row">
+                <div class="col">
+                  <!--input volumenes-->
+                  <h5>Volúmenes</h5>
+                  <input id="volumen" name="volumen" class="form-control" type="number" placeholder="0"
+                    aria-label="default input example" min="1" required>
+                </div>
+                <div class="col">
+                  <!--input precio-->
+                  <h5>Precio</h5>
+                  <input id="precio" name="precio" class="form-control" type="number" step="0.01" placeholder="00.00"
+                    aria-label="default input example" min="0" required>
+                </div>
+                <div class="col">
+                  <h5>Portada</h5>
+                  <!--input cover-->
+                  <input id="id" name="id" class="form-control" type="input" placeholder="Titulo..."
+                    aria-label="default input example" hidden>
+                  <input id="ruta" name="ruta" class="form-control" type="input" placeholder="Titulo..."
+                    aria-label="default input example" hidden>
+                  <input class="form-control" name="archivo" id="archivo" type="file" required>
+                  <img id="imagen_cover" class="coverM" src="">
+                </div>
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <button id="salir" type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                onclick="EliminarPreview()">Salir</button>
+              <button id="valoraciones" type="button" class="btn btn-primary" data-bs-toggle="modal"
+                data-bs-target="#rating_modal" onclick="cargarValoraciones()">valoraciones</button>
+              <button type="submit" class="btn btn-success">Aplicar</button>
+            </div>
+        </form>
+      </div>
+    </div>
+    </div>
+    <!--modal ver registros de inventario-->
+    <div class="modal fade" id="registrosM" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Registro de ingresos</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <!--tabla de registros-->
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">manga</th>
+                  <th scope="col">volumen</th>
+                  <th scope="col">cantidad</th>
+                  <th scope="col">fecha</th>
+                  <th scope="col">usuario</th>
+                </tr>
+              </thead>
+              <tbody id="tbody-registros">
+                <tr>
+                  <td>Kaguya-sama wa Kokurasetai: Tensai-tachi no Renai Zunousen</td>
+                  <td>23</td>
+                  <td>23</td>
+                  <td>09/11/2001</td>
+                  <td>Tu vieja</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Jacob</td>
+                  <td>Thornton</td>
+                  <td>@fat</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td colspan="2">Larry the Bird</td>
+                  <td>@twitter</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reportModal">
+              Generar PDF
+            </button>
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Modal Rpeortes-->
+    <div class="modal fade" id="reportModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <form id="form-reports">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">PDF</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="checkReport">
+                <label class="form-check-label" for="flexCheckDefault">
+                  Filtrar por fechas
+                </label>
+                <div id="filtro" hidden>
+                  <hr>
+                  <input id="fecha_1" name="fecha_entrega" type="date" class="form-control">
+                  <label class="form-check-label" for="flexCheckDefault">
+                    <p>desde</p>
+                  </label>
+                  <input id="fecha_2" name="fecha_entrega" type="date" class="form-control">
+                  <label class="form-check-label" for="flexCheckDefault">
+                    <p>hasta</p>
+                  </label>
+                </div>
+
+              </div>
+              <button type="submit" class="btn btn-secondary">Generar PDF</button>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Modal Ver Pedidos -->
+    <div class="modal fade" id="pedidosM" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Ver Pedidos</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form id="search-pedidos">
+              <!--barra de busqueda-->
+              <div class="row">
+                <div class="col-8">
+                  <input id="search_input" class="form-control col-6" type="search" placeholder="Search"
+                    aria-label="Search" id="buscar" name="buscar">
+                </div>
+                <div class="col-2">
+                  <button class="btn btn-success" role="button" type="submit">Buscar</button>
+                </div>
+                <div class="col-2">
+                </div>
+              </div>
+              <!--filtros-->
+              <div class="row">
+                <hr class="margintop">
+                <div class="col-1">
+                  <label class="form-check-label textcent" for="flexCheckDefault">
+                    desde
+                  </label>
+                </div>
+                <div class="col-3">
+                  <input id="fecha_1_pedidos" name="fecha1" type="date" class="form-control">
+                </div>
+                <div class="vr" style="height: 30px; width: 1px; padding: 0px;"></div>
+                <div class="col-1">
+                  <label class="form-check-label textcent" for="flexCheckDefault">
+                    hasta
+                  </label>
+                </div>
+                <div class="col-3">
+                  <input id="fecha_2_pedidos" name="fecha2" type="date" class="form-control">
+                </div>
+                <div class="col-1">
+                  <button type="button" class="btn btn-secondary btn-sm" onclick="clearIn()">Limpiar Campos</button>
+                </div>
+                <div class="col-1"></div>
+                <div class="col-1">
+                  <button type="button" class="btn btn-secondary btn-sm"
+                    title="Se filtrará unicamente por fechas" onclick="reportePedidos()">Generar PDF</button>
+                </div>
+              </div>
+              <div class="row">
+              </div>
+
+            </form>
+            <!--tabla de registros-->
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">nombre</th>
+                  <th scope="col">apellido</th>
+                  <th scope="col">estado</th>
+                  <th scope="col">fecha</th>
+                  <th scope="col">acciones</th>
+                </tr>
+              </thead>
+              <tbody id="tbody-pedidos">
+                <tr>
+                  <td>Kaguya-sama wa Kokurasetai: Tensai-tachi no Renai Zunousen</td>
+                  <td>23</td>
+                  <td>23</td>
+                  <td>09/11/2001</td>
+                  <td>Tu vieja</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Jacob</td>
+                  <td>Thornton</td>
+                  <td>@fat</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td colspan="2">Larry the Bird</td>
+                  <td>@twitter</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--detalle facturas modal-->
+    <div class="modal fade" id="detalle_mod" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Detalle del pedido</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Producto</th>
+                  <th scope="col">Cantidad</th>
+                  <th scope="col">Precio</th>
+                  <th scope="col">Sub Total</th>
+                </tr>
+              </thead>
+              <tbody id="tbody-detalles">
+                <tr>
+                  <td>Kaguya-sama wa Kokurasetai: Tensai-tachi no Renai Zunousen</td>
+                  <td>23</td>
+                  <td>23</td>
+                  <td>09/11/2001</td>
+                  <td>Tu vieja</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Jacob</td>
+                  <td>Thornton</td>
+                  <td>@fat</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td colspan="2">Larry the Bird</td>
+                  <td>@twitter</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#pedidosM"
+              onclick="cargarPedidos()">
+              Ver Pedidos
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!----------------------------------------valoraciones------------------------------------------->
+    <div class="modal fade modal-lg" id="rating_modal" tabindex="-1" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog">
+        <form id="save-form">>
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Valoraciones</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                onclick="EliminarPreview()"></button>
+            </div>
+            <!--cuerpo del modal-->
+
+            <div class="modal-body">
+              <table class="table caption-top table-responsive-sm" id="table_new">
+                <thead>
+                  <tr>
+                    <th scope="col" hidden>id</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">volumen</th>
+                    <th scope="col">Nombre Cliente</th>
+                    <th scope="col">Apellido Cliente</th>
+                    <th scope="col">Valoracion</th>
+                    <th scope="col">Comentario</th>
+                    <th scope="col" class="text-center">Acciones</th>
+                  </tr>
+                </thead>
+                <tbody id="tbody-valoraciones">
+                  <tr>
+                    <td hidden>2</td>
+                    <td><img class="coverM" src="../../resources/img/spyxfamilyv1.jpg"></td>
+                    <td>Spy x Fmaily</td>
+                    <td>2</td>
+                    <td>Douglas Xavier</td>
+                    <td>Melara Guardado</td>
+                    <td>5</td>
+                    <td>sdada</td>
+                    <td class="text-center">
+                      <span>Estado:</span>
+                      <label>
+                        <input id="estado" type="checkbox" name="estado" checked>
+                        <span class="lever"></span>
+                      </label>
+                    </td>
+                  </tr>
+                  <!--fila de la tabla-->
+                  <tr>
+                    <td hidden>2</td>
+                    <td><img class="coverM" src="../../resources/img/spyxfamilyv1.jpg"></td>
+                    <td>Spy x Fmaily</td>
+                    <td>2</td>
+                    <td>Douglas Xavier</td>
+                    <td>Melara Guardado</td>
+                    <td>5</td>
+                    <td>sdada</td>
+                    <td class="text-center">
+                      <span>Estado:</span>
+                      <label>
+                        <input id="estado" type="checkbox" name="estado" checked>
+                        <span class="lever"></span>
+                      </label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td hidden>2</td>
+                    <td><img class="coverM" src="../../resources/img/spyxfamilyv1.jpg"></td>
+                    <td>Spy x Fmaily</td>
+                    <td>2</td>
+                    <td>Douglas Xavier</td>
+                    <td>Melara Guardado</td>
+                    <td>5</td>
+                    <td>sdada</td>
+                    <td class="text-center">
+                      <span>Estado:</span>
+                      <label>
+                        <input id="estado" type="checkbox" name="estado" checked>
+                        <span class="lever"></span>
+                      </label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="modal-footer">
+              <button id="salir" type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                onclick="EliminarPreview()">Salir</button>
+              <button type="submit" class="btn btn-success">Aplicar</button>
+            </div>
+        </form>
+      </div>
+    </div>
+    </div>
+
+
+    <div class="container">
+
+      <div id="inv_container" class="row">
+        <form id="search" role="search">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <div class="row">
+              <div id="inv_nav_element" class="btn_inv col-md-1 text-center">
+                <button id="btn_inv" type="button" class="btn btn-secondary" data-bs-toggle="modal"
+                  data-bs-target="#insert_modal" onclick="openCreate()">Agregar</button>
+              </div>
+              <div id="inv_nav_element" class="btn_inv col-md-1 text-center">
+                <button id="btn_report" type="button" title="Solo se filtrará por mangas" class="btn btn-secondary" onclick="reporteProductos()">Reporte PDF</button>
+              </div>
+              <li class="nav-item dropdown col-sm-6 col-md-6 col-lg-3 text-center">
+                <select class="form-select dropdown_manga field_manga" name="manga" id="mangaSR"
+                  aria-label="Default select example">
+                  <option selected>Mangas</option>
+                  <option value="1">Asaura</option>
+                  <option value="2">aka akasaka</option>
+                  <option value="3">Tappei Nagatsuki</option>
+                </select>
+              </li>
+              <li class="nav-item dropdown col-sm-6 col-md-6 col-lg-3 text-center">
+                <h5>volúmenes</h5>
+                <select class="form-select dropdown_manga field_manga" name="volumen" id="volumenSR"
+                  aria-label="Default select example">
+                  <option value="1">Ascendente</option>
+                  <option value="2">Descendente</option>
+                </select>
+              </li>
+              <li class="nav-item dropdown col-sm-6 col-md-6 col-lg-3 text-center">
+                <h5>unidades</h5>
+                <select class="form-select dropdown_manga field_manga" name="unidades" id="unidadesSR"
+                  aria-label="Default select example">
+                  <option selected>No filtrar</option>
+                  <option value="1">Descendente</option>
+                  <option value="2">Ascendente</option>
+                </select>
+              </li>
+            </div>
+            <div class="row searchin">
+              <div class="col">
+                <button class="btn btn-success col-3" type="submit">Buscar</button>
+              </div>
+              <div class="col">
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registrosM"
+                  onclick="cargarRegistros()">
+                  Ver Registros
+                </button>
+              </div>
+              <div class="col">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#pedidosM"
+                  onclick="cargarPedidos()">
+                  Ver Pedidos
+                </button>
+              </div>
+            </div>
+
+
+      </div>
+
+      </ul>
+
+
+      </form>
+    </div>
+
+    </div>
+    <div class="container">
+      <table class="table caption-top table-responsive-sm" id="table_new">
+        <thead>
+          <tr>
+            <th scope="col" hidden>id</th>
+            <th scope="col">Portada</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">volumen</th>
+            <th scope="col">Unidades</th>
+            <th scope="col">Precio</th>
+            <th scope="col" class="text-center">Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="tbody-rows">
+          <tr>
+            <td hidden>2</td>
+            <td><img class="coverM" src="../../resources/img/spyxfamilyv1.jpg"></td>
+            <td>Spy x Fmaily</td>
+            <td>2</td>
+            <td>27</td>
+            <td>$15.00</td>
+            <td class="text-center">
+              <button href="../index.html" data-bs-toggle="modal" data-bs-target="#modi_modal"><img id="img_ico"
+                  src="../../resources/img/pencil.png">
+              </button>
+              <button href="../index.html"><img id="img_ico" src="../../resources/img/trash-can.png">
+              </button>
+
+              <button href="../index.html"> <img id="img_ico" src="../../resources/img/report.png">
+              </button>
+            </td>
+          </tr>
+          <!--fila de la tabla-->
+          <tr>
+            <!--imagen-->
+            <td><img class="coverM" src="../../resources/img/spyxfamilyv1.jpg"></td>
+            <!--titulo-->
+            <td>Spy x Fmaily</td>
+            <td>3</td>
+            <!--unidades-->
+            <td>27</td>
+            <td>$15.00</td>
+            <!--acciones-->
+            <td class="text-center">
+              <button href="../index.html" data-bs-toggle="modal" data-bs-target="#modi_modal"><img id="img_ico"
+                  src="../../resources/img/pencil.png">
+              </button>
+              <button href="../index.html"><img id="img_ico" src="../../resources/img/trash-can.png">
+              </button>
+
+              <button href="../index.html"> <img id="img_ico" src="../../resources/img/report.png">
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td><img class="coverM" src="../../resources/img/spyxfamilyv1.jpg"></td>
+            <td>Spy x Fmaily</td>
+            <td>27</td>
+            <td class="text-center">
+              <button href="../index.html" data-bs-toggle="modal" data-bs-target="#modi_modal"><img id="img_ico"
+                  src="../../resources/img/pencil.png">
+              </button>
+              <button href="../index.html"><img id="img_ico" src="../../resources/img/trash-can.png">
+              </button>
+
+              <button href="../index.html"> <img id="img_ico" src="../../resources/img/report.png">
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+
+
+
+
+  </main>
+  <footer class="py-3 my-4">
+    <h2 class="media">Redes Sociales</h2>
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+      <li class="nav-item"><a href="https://www.facebook.com/" class="nav-link px-2 text-muted"><img class="iconS"
+            src="../../resources/img/face.png"></a></li>
+      <li class="nav-item"><a href="https://www.youtube.com/" class="nav-link px-2 text-muted"><img class="iconS"
+            src="../../resources/img/yutu.png"></a></li>
+      <li class="nav-item"><a href="https://www.instagram.com/" class="nav-link px-2 text-muted"><img class="iconS"
+            src="../../resources/img/insta.png"></a></li>
+      <li class="nav-item"><a href="https://twitter.com/home" class="nav-link px-2 text-muted"><img class="iconS"
+            src="../../resources/img/twit.png"></a></li>
+    </ul>
+    <p class="text-center">© 2023 7mangas, Inc</p>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"></script>
+  <script src="../../resources/js/bootstrap.min.js"></script>
+  <script src="../../resources/js/sweetalert.min.js"></script>
+  <script src="../../controllers/components.js"></script>
+  <script src="../../controllers/private/account.js"></script>
+  <script src="../../controllers/private/productos.js"></script>
+</body>
+
+</html>

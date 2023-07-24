@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gestión usuarios</title>
+  <link rel="icon" href="../../resources/img/logo_icon.png">
+  <link rel="stylesheet" href="../../resources/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../resources/css/public.css">
+</head>
+
+<body>
+  <!--navbar-->
+  <nav id="navbare" class="navbar fixed-top navbar-expand-lg bg-body-tertiary">
+    <div id="navbare" class="container-fluid">
+      <a class="navbar-brand" href="#"><img src="../../resources/img/logo.png" height="70"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="dashboard.html">Pagina Principal</a>
+          </li>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="inventario.html">Gestión de inventario</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="gestion_manga.html">gestión mangas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="gestion_usuarios.html">Gestión de usuarios</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="gestion_clientes.html">Gestión de clientes</a>
+          </li>
+        </ul>
+        <li id="users" class="nav-item dropdown">
+          <a id="USerLog" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <img src="../../resources/img/user.png" height="20">Admin1
+          </a>
+          <ul class="dropdown-menu">
+            <li><a onclick="logOut()" class="dropdown-item"> cerrar sesión</a></li>
+          </ul>
+        </li>
+      </div>
+    </div>
+  </nav>
+
+  <!-- CONTENIDO -->
+  <main>
+    <!----------------------------------------MODALS------------------------------------------->
+    <!----------------------------------------insert------------------------------------------->
+
+
+
+    <!---------------------------MODAL INSERTAR---------------------->
+    <div class="modal fade modal-lg" id="modi_modal" tabindex="-1" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <form class="row" method="post" id="save-form">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 id="modal-title" class="center-align"></h4>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <form id="form-user">
+                  <div class="col">
+                    <h5></h5>
+                    <input class="form-control inputext" type="hidden" id="id" name="id">
+                  </div>
+                  <div class="col">
+                    <h5>Usuario</h5>
+                    <input class="form-control inputext" type="text" id="usuario" name="usuario" required>
+                  </div>
+                  <div class="col">
+                    <select id="estado" name="estado">
+                    </select>
+                  </div>
+                  <div class="col">
+                    <div class="row">
+                      <div class="col">
+                        <h5>Contraseña</h5>
+                        <input class="form-control inputext" type="password" id="contrasenia" name="contrasenia" required>
+                        <h5>Confirmar Contraseña</h5>
+                        <input class="form-control inputext" type="password" id="confirmar" name="confirmar" required>
+                      </div>
+
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+              <button type="submit" class="btn btn-success">Agregar Administrador</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+
+
+    <!----filtros----->
+    <div id="user_container" class="container-sm">
+      <div class="row">
+        <div id="inv_nav_element" class="btn_inv col-sm-1 text-center">
+          <button  onclick="openCreate()" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modi_modal">+
+            Admin</button>
+        </div>
+          
+      </div>
+
+
+      <!--tabla-->
+      <div>
+        <div class="table-responsive table us">
+          <table class="table">
+            <thead>
+              <tr id="records"></tr>
+              <tr>
+                <th scope="col">Usuario</th>
+                <th scope="col">Estados</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="tbody-rows"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+
+  </main>
+  <footer class="py-3 my-4">
+    <h2 class="media">Redes Sociales</h2>
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+      <li class="nav-item"><a href="https://www.facebook.com/" class="nav-link px-2 text-muted"><img class="iconS"
+            src="../../resources/img/face.png"></a></li>
+      <li class="nav-item"><a href="https://www.youtube.com/" class="nav-link px-2 text-muted"><img class="iconS"
+            src="../../resources/img/yutu.png"></a></li>
+      <li class="nav-item"><a href="https://www.instagram.com/" class="nav-link px-2 text-muted"><img class="iconS"
+            src="../../resources/img/insta.png"></a></li>
+      <li class="nav-item"><a href="https://twitter.com/home" class="nav-link px-2 text-muted"><img class="iconS"
+            src="../../resources/img/twit.png"></a></li>
+    </ul>
+    <p class="text-center">© 2023 7mangas, Inc</p>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"></script>
+  <script src="../../resources/js/bootstrap.min.js"></script>
+  <script src="../../resources/js/sweetalert.min.js"></script>
+  <script src="../../controllers/components.js"></script>
+  <script src="../../controllers/private/account.js"></script>
+  <script src="../../controllers/private/usuarios_admin.js"></script>
+</body>
+
+</html>

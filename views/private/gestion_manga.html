@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gestión de mangas</title>
+    <link rel="icon" href="../../resources/img/logo_icon.png">
+    <link rel="stylesheet" href="../../resources/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../resources/css/public.css">
+</head>
+
+<body>
+    <nav id="navbare" class="navbar fixed-top navbar-expand-lg bg-body-tertiary">
+        <div id="navbare" class="container-fluid">
+            <a class="navbar-brand" href="#"><img src="../../resources/img/logo.png" height="70"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">Pagina Principal</a>
+                    </li>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="inventario.html">Gestión de inventario</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="gestion_manga.html">gestión mangas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gestion_usuarios.html">Gestión de usuarios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gestion_clientes.html">Gestión de clientes</a>
+                    </li>
+                </ul>
+                <li id="users" class="nav-item dropdown">
+                    <a id="USerLog" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <img src="../../resources/img/user.png" height="20">Admin1
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a onclick="logOut()" class="dropdown-item">cerrar sesión</a></li>
+                    </ul>
+                </li>
+            </div>
+        </div>
+    </nav>
+
+    <!-- CONTENIDO -->
+    <article>
+        <h2 class="title"></h2>
+        <!--nav-->
+        <div class="container text-center">
+            <div class="row align-items-start">
+                <div class="col">
+                    <!--busqueda parametrizada-->
+                    <form id="search" role="search">
+                        <div class="row">
+                            <div class="nav-item col-sm-12 col-md-6 col-lg-3 text-center">
+                                <select class="form-select dropdown_manga field_manga" name="genero" id="generoSR"
+                                    aria-label="Default select example">
+                                    <option selected>Genero</option>
+                                    <option value="1">Asaura</option>
+                                    <option value="2">aka akasaka</option>
+                                    <option value="3">Tappei Nagatsuki</option>
+                                </select>
+                            </div>
+                            <div class="nav-item col-sm-12 col-md-6 col-lg-3 text-center">
+                                <select class="form-select dropdown_manga field_manga" name="demografia"
+                                    id="demografiaSR" aria-label="Default select example">
+                                    <option selected>Demografia</option>
+                                    <option value="1">Asaura</option>
+                                    <option value="2">aka akasaka</option>
+                                    <option value="3">Tappei Nagatsuki</option>
+                                </select>
+                            </div>
+                            <div class="nav-item col-sm-12 col-md-6 col-lg-3 text-center">
+                                <select class="form-select dropdown_manga field_manga" name="autor" id="autorSR"
+                                    aria-label="Default select example">
+                                    <option selected>Autor</option>
+                                    <option value="1">Asaura</option>
+                                    <option value="2">aka akasaka</option>
+                                    <option value="3">Tappei Nagatsuki</option>
+                                </select>
+                            </div>
+                            <div class="nav-item col-sm-12 col-md-6 col-lg-3 text-center">
+                                <select class="form-select dropdown_manga field_manga" name="revista" id="revistaSR"
+                                    aria-label="Default select example">
+                                    <option selected>Revista</option>
+                                    <option value="1">Asaura</option>
+                                    <option value="2">aka akasaka</option>
+                                    <option value="3">Tappei Nagatsuki</option>
+                                </select>
+                            </div>
+
+
+                        </div>
+                        <div class="row margintop">
+                            <div class="col-lg-10 col-md-10 col-sm-12 text-end">
+                                <div class="row">
+                                    <div class="col-9">
+                                        <input id="search_input" class="form-control" type="search" name="search"
+                                            placeholder="Buscar..." aria-label="Search">
+                                    </div>
+                                    <div class="col-3"> <button class="btn btn-success text-start"
+                                            type="submit">Buscar</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row margintop">
+                            <div class="col-lg-10 col-md-10 col-sm-12 text-start">
+
+                                <button class="btn btn-secondary" type="button" onclick="reporte()">Generar Reporte</button>
+                            </div>
+                        </div>
+
+
+
+                    </form>
+                    <div id="manga_but" class="col 13">
+                        <hr>
+
+                        <!--------------------------------------modals----------------------------------->
+                        <!------------- INSERT-------------->
+                        <div class="modal fade" id="manga_mod" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Información del manga</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close" onclick="EliminarPreview()"></button>
+                                    </div>
+                                    <!-------formulario mangas------->
+                                    <form id="mangas_form">
+
+                                        <div class="modal-body">
+
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <img id="imagen_producto" class="coverM" src="">
+                                                    <!--rute-->
+                                                    <input class="form-control form-control-sm" name="ruta" id="ruta"
+                                                        type="text" hidden>
+                                                    <label for="formFileSm" class="form-label"></label>
+                                                    <!--input imagen-->
+                                                    <input class="form-control" name="archivo" id="archivo" type="file"
+                                                        required>
+                                                    <div class="row justify-content-center">
+                                                        <!--input anio-->
+                                                        <input name="anio" id="anio"
+                                                            class="form-control smform text-center" type="text"
+                                                            placeholder="año.." aria-label="default input example"
+                                                            required maxlength="4">
+                                                        <!--input volumenes-->
+                                                        <input class="form-control smform text-center" id="volumenes"
+                                                            type="text" placeholder="volumenes..."
+                                                            aria-label="default input example" name="volumenes"
+                                                            maxlength="3" required>
+                                                    </div>
+                                                </div>
+                                                <div id="col-2resp" class="col-8">
+                                                    <div class="row ">
+                                                        <div class="col text-start">
+                                                            <!--input id hidden-->
+                                                            <input id="id" class="form-control" type="text"
+                                                                placeholder="Titulo..." name="id"
+                                                                aria-label="default input example" hidden></input>
+                                                            <!--input titulo-->
+                                                            <input id="titulo" class="form-control" type="text"
+                                                                placeholder="Titulo..." name="titulo"
+                                                                aria-label="default input example" maxlength="100"
+                                                                required>
+                                                        </div>
+                                                    </div>
+                                                    <hr id="divider_manga" lass="hr" />
+                                                    <div id="manga_row" class="row text-start">
+                                                        <!--input select autores-->
+                                                        <select class="form-select dropdown_manga field_manga"
+                                                            name="autor" id="autor" aria-label="Default select example">
+                                                            <option selected>Autor</option>
+                                                            <option value="1">Asaura</option>
+                                                            <option value="2">aka akasaka</option>
+                                                            <option value="3">Tappei Nagatsuki</option>
+                                                        </select>
+                                                    </div>
+                                                    <div id="manga_row" class="row text-start">
+                                                        <!--input select demografia-->
+                                                        <select class="form-select dropdown_manga field_manga"
+                                                            name="demografia" id="demografia"
+                                                            aria-label="Default select example">
+                                                            <option selected>Demografia</option>
+                                                        </select>
+                                                    </div>
+                                                    <div id="manga_row" class="row text-start">
+                                                        <div class="col-3 text-start">
+                                                            <h5>Descripción</h5>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <!--input Descripcuion-->
+                                                        <div id="" class="col-10 text-start manga_container">
+                                                            <textarea id="descripcion" name="descripcion"
+                                                                class="form-control manga_container"
+                                                                id="exampleFormControlTextarea1"
+                                                                placeholder="Descripción..." rows="6" required
+                                                                maxlength="1000"></textarea>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <hr id="divider_manga_bot" lass="hr" />
+                                            <div class="row">
+                                                <div class="col-4 text-start">
+                                                    <div id="formmargin" class="row row-cols-auto">
+                                                        <div class="col-4">
+                                                            <!--input genero-->
+                                                            <h5>Generos</h5>
+                                                        </div>
+                                                        <div class="col">
+                                                            <select class="form-select dropdown_manga field_manga"
+                                                                name="genero" id="generos"
+                                                                aria-label="Default select example">
+                                                                <option selected>Generos</option>
+                                                                <option value="1">comedia</option>
+                                                                <option value="2">ronace</option>
+                                                                <option value="3">Tappei Nagatsuki</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div id="formmargin" class="row row-cols-auto">
+                                                        <div class="col-4">
+                                                            <h5>estado</h5>
+                                                        </div>
+                                                        <!--select estado-->
+                                                        <select class="form-select dropdown_manga field_manga"
+                                                            name="estado" id="estado"
+                                                            aria-label="Default select example">
+                                                            <option selected>Estado</option>
+                                                            <option value="1">Asaura</option>
+                                                            <option value="2">aka akasaka</option>
+                                                            <option value="3">Tappei Nagatsuki</option>
+                                                        </select>
+                                                    </div>
+                                                    <div id="formmargin" class="row row-cols-auto">
+                                                        <div class="col">
+                                                            <h5>Revista de publicacion</h5>
+                                                        </div>
+                                                        <!--select revista-->
+                                                        <select class="form-select dropdown_manga field_manga"
+                                                            name="revista" id="revista"
+                                                            aria-label="Default select example">
+                                                            <option selected>Revista de publicación</option>
+                                                            <option value="1">Asaura</option>
+                                                            <option value="2">aka akasaka</option>
+                                                            <option value="3">Tappei Nagatsuki</option>
+                                                        </select>
+                                                    </div>
+
+
+                                                </div>
+                                                <div class="col-8 text-start">
+                                                    <h5>Generos</h5>
+                                                    <!--<input id="idDetalle" class="form-control" type="text"
+                                                        placeholder="Titulo..." name="idDetalle"
+                                                        aria-label="default input example" hidden>-->
+                                                    <div id="col-2resp" class="row">
+                                                        <div id="manga_container_genders" class="col-10 text-start">
+                                                            <div id="container_genders"
+                                                                class="row row-cols-auto container text-center">
+
+
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <!--BOTONES-->
+                                            <button id="BTNeliminar" type="button"
+                                                class="btn btn-danger btn-sm text-start"
+                                                onclick="DeleteManga()">Eliminar</button>
+                                            <button id="subir" type="submit" class="btn btn-success">Aplicar</button>
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                                                onclick="EliminarPreview()">Salir</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="fila_botones" class="row">
+                            <div class="col">
+                                <a type="button" href="otras_config.html" class="btn btn-primary btn-sm">Gestionar
+                                    categoria</a>
+                            </div>
+                            <div class="col">
+
+                                <!--manga trigger-->
+                                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                    data-bs-target="#manga_mod" onclick="(openCreate())">Añadir manga</button>
+                            </div>
+                        </div>
+
+
+
+                        <div class="container text-center">
+                            <div class="row" id="mangas_row">
+
+                            </div>
+                        </div>
+
+    </article>
+
+
+    <!---------------------------------------footer------------------------------>
+    <footer class="py-3 my-4">
+        <h2 class="media">Redes Sociales</h2>
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item"><a href="https://www.facebook.com/" class="nav-link px-2 text-muted"><img class="iconS"
+                        src="../../resources/img/face.png"></a></li>
+            <li class="nav-item"><a href="https://www.youtube.com/" class="nav-link px-2 text-muted"><img class="iconS"
+                        src="../../resources/img/yutu.png"></a></li>
+            <li class="nav-item"><a href="https://www.instagram.com/" class="nav-link px-2 text-muted"><img
+                        class="iconS" src="../../resources/img/insta.png"></a></li>
+            <li class="nav-item"><a href="https://twitter.com/home" class="nav-link px-2 text-muted"><img class="iconS"
+                        src="../../resources/img/twit.png"></a></li>
+        </ul>
+        <p class="text-center">© 2023 7mangas, Inc</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="../../resources/js/bootstrap.min.js"></script>
+    <script src="../../resources/js/sweetalert.min.js"></script>
+    <script src="../../controllers/components.js"></script>
+    <script src="../../controllers/private/account.js"></script>
+    <script src="../../controllers/private/mangas.js"></script>
+</body>
+
+</html>

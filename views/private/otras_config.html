@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link rel="icon" href="../../resources/img/logo_icon.png">
+    <link rel="stylesheet" href="../../resources/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../resources/css/public.css">
+</head>
+
+<body>
+    <!--------------------------------navbar-------------------------------------------------->
+    <nav id="navbare" class="navbar fixed-top navbar-expand-lg bg-body-tertiary">
+        <div id="navbare" class="container-fluid">
+            <a class="navbar-brand" href="#"><img src="../../resources/img/logo.png" height="70"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">Pagina Principal</a>
+                    </li>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="inventario.html">Gestión de inventario</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="gestion_manga.html">gestión mangas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gestion_usuarios.html">Gestión de usuarios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gestion_clientes.html">Gestión de clientes</a>
+                    </li>
+                </ul>
+                <li id="users" class="nav-item dropdown">
+                    <a id="USerLog" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <img src="../../resources/img/user.png" height="20">Admin1
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a onclick="logOut()" class="dropdown-item">cerrar sesión</a></li>
+                    </ul>
+                </li>
+            </div>
+        </div>
+    </nav>
+
+    <!-------MODALS--------->
+    <!-- modal inserción -->
+    <div class="modal fade" id="InsertMod" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form id="guardar_config">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Insertar/Actualizar</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="row">
+                            <div class="col">
+                                <input hidden type="text" name="id" id="id_coso" class="form-control"
+                                    aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"
+                                    placeholder="agregar...">
+                                <input type="text" name="dato" id="coso" class="form-control"
+                                    aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"
+                                    placeholder="agregar..." required maxlength="30">
+                            </div>
+                            <div class="col">
+                                <select id="tablaCombo" class="form-select" aria-label="Default select example">
+                                    <option selected>Tabla</option>
+                                    <option value="1">Demografia</option>
+                                    <option value="2">Genero</option>
+                                    <option value="3">Autor</option>
+                                    <option value="4">Revista</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    <!-- CONTENIDO -->
+    <main>
+        <div class="container text-center" id="otrasconfigcss">
+
+            <!----------------------------Configuraciones------------------------->
+            <div class="row">
+                <div class="col"></div>
+                <div class="col-3">
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#InsertMod" onclick="openInsertar()">
+                        <img src="../../resources/img/agregar.png">Agregar
+                    </button>
+
+                </div>
+                <div class="col"></div>
+                <div class="row" id="row-configs">
+                    <!---------------Buscador------------------->
+                    <form id="searchConfigs">
+                        <input type="text" class="form-control search" placeholder="Buscar..."
+                            aria-label="Recipient's username" aria-describedby="button-addon2" name="search">
+                    </form>
+
+                    <!---------------Demografias------------------>
+                    <div class="col-4">
+                        <div id="configcss" class="container text-center overflow-auto">
+                            <div id="configposicion" class="row">
+                                <div class="col">
+                                    <h6>Demografía</h6>
+                                </div>
+                                <div class="col">
+                                    <h6>Acciones</h6>
+                                </div>
+                            </div>
+                            <table class="table">
+                                <thead>
+                                    <tr id="records">
+
+                                    </tr>
+                                </thead>
+
+                                <tbody id="tbody-rows-demografia" class="table-group-divider overflow-auto">
+                                    <tr>
+                                        <th>
+                                            zzz
+                                        </th>
+                                        <th>
+                                            <div class="col">
+                                                <h7><button class="btn"onclick="openUpdateGenero(${row.id_genero})"><img src="../../resources/img/pencil.png" alt="" height="30" data-bs-toggle="modal" data-bs-target="#InsertMod"></button><img src="../../resources/img/eliminar.png"
+                                                        height="30"></h7>
+                                            </div>
+                                        </th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-----------------------Generos ------------------------------------>
+                    <div class="col-4">
+                        <div id="configcss" class="container text-center overflow-auto">
+                            <div id="configposicion" class="row">
+                                <div class="col">
+                                    <h6>Género</h6>
+                                </div>
+                                <div class="col">
+                                    <h6>Acciones</h6>
+                                </div>
+                            </div>
+                            <table class="table">
+                                <thead>
+                                    <tr id="records">
+
+                                    </tr>
+                                </thead>
+
+                                <tbody id="tbody-rows-genero" class="table-group-divider overflow-auto">
+                                    <tr>
+                                        <th>
+                                            zzz
+                                        </th>
+                                        <th>
+                                            <div class="col">
+                                                <h7><img src="../../resources/img/editar.png" height="30"><img
+                                                        src="../../resources/img/eliminar.png" height="30"></h7>
+                                            </div>
+                                        </th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!--------------------autores--------------------------------------->
+                    <div class="col-4">
+                        <div id="configcss" class="container text-center overflow-auto">
+                            <div id="configposicion" class="row">
+                                <div class="col">
+                                    <h6>Autor</h6>
+                                </div>
+                                <div class="col">
+                                    <h6>Acciones</h6>
+                                </div>
+                            </div>
+                            <table class="table">
+                                <thead>
+                                    <tr id="records">
+
+                                    </tr>
+                                </thead>
+
+                                <tbody id="tbody-rows-autor" class="table-group-divider overflow-auto">
+                                    <tr>
+                                        <th>
+                                            zzz
+                                        </th>
+                                        <th>
+                                            <div class="col">
+                                                <h7><img src="../../resources/img/editar.png" height="30"><img
+                                                        src="../../resources/img/eliminar.png" height="30"></h7>
+                                            </div>
+                                        </th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!----------------Revistas------------------->
+                    <div class="col-4">
+                        <div id="configcss" class="container text-center overflow-auto">
+                            <div id="configposicion" class="row">
+                                <div class="col">
+                                    <h6>Revistas</h6>
+                                </div>
+                                <div class="col">
+                                    <h6>Acciones</h6>
+                                </div>
+                            </div>
+                            <table class="table">
+                                <thead>
+                                    <tr id="records">
+
+                                    </tr>
+                                </thead>
+
+                                <tbody id="tbody-rows-revista" class="table-group-divider overflow-auto">
+                                    <tr>
+                                        <th>
+                                            zzz
+                                        </th>
+                                        <th>
+                                            <div class="col">
+                                                <h7><img src="../../resources/img/editar.png" height="30"><img
+                                                        src="../../resources/img/eliminar.png" height="30"></h7>
+                                            </div>
+                                        </th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 id="otrasconfigcss3"></h2>
+
+    </main>
+
+    <!-------------------------------------footer------------------------------------>
+    <footer class="py-3 my-4">
+        <h2 class="media">Redes Sociales</h2>
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item"><a href="https://www.facebook.com/" class="nav-link px-2 text-muted"><img class="iconS"
+                        src="../../resources/img/face.png"></a></li>
+            <li class="nav-item"><a href="https://www.youtube.com/" class="nav-link px-2 text-muted"><img class="iconS"
+                        src="../../resources/img/yutu.png"></a></li>
+            <li class="nav-item"><a href="https://www.instagram.com/" class="nav-link px-2 text-muted"><img
+                        class="iconS" src="../../resources/img/insta.png"></a></li>
+            <li class="nav-item"><a href="https://twitter.com/home" class="nav-link px-2 text-muted"><img class="iconS"
+                        src="../../resources/img/twit.png"></a></li>
+        </ul>
+        <p class="text-center">© 2023 7mangas, Inc</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="../../resources/js/sweetalert.min.js"></script>
+    <script src="../../resources/js/bootstrap.min.js"></script>
+    <script src="../../controllers/components.js"></script>
+    <script src="../../controllers/private/account.js"></script>
+
+    <script src="../../controllers/private/otras_config.js"></script>
+
+
+</body>
+
+</html>
