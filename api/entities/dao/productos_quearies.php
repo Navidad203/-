@@ -323,10 +323,11 @@ class Productos_Quearies{
     }
     public function graficoProductos()
     {
-        $sql = 'SELECT id_manga, cantidad
-        FROM productos
-        INNER JOIN mangas USING(id_manga)
-        ORDER BY cantidad';
+        $sql = 'SELECT titulo, cantidad
+        FROM mangas
+        INNER JOIN productos USING(id_manga)
+        ORDER BY cantidad DESC
+        LIMIT 5';
         return Database::getRows($sql);
     }
 

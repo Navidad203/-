@@ -74,6 +74,17 @@ if (isset($_GET['action'])) {
                     $result['message'] = 'Valoracion cargada';
                 }
                 break;
+                case 'graficaValoraciones':
+                    $_POST = Validator::validateForm($_POST);
+                    if (!$valoraciones->graficaValoraciones($_POST['id'])) {
+                        $result['exception'] = 'error al obtener la valoracion';
+                    } elseif (Database::getException()) {
+                        $result['exception'] = Database::getException();
+                    } else {
+                        $result['status'] = 1;
+                        $result['message'] = 'Valoracion cargada';
+                    }
+                    break;
                 //obtener los detalles de una factura
 
             default:

@@ -161,4 +161,14 @@ class usuario_cliente_queries
                 $params = array($this->usuario);
                 return Database::getRow($sql, $params);
     }
+    public function graficoUsuario()
+    {
+        $sql = 'SELECT COUNT(clientes.id_cliente) AS cuenta, clientes.nombre FROM facturas
+        INNER JOIN clientes USING (id_cliente)
+        WHERE clientes.id_cliente = clientes.id_cliente
+        GROUP BY clientes.nombre
+        ORDER BY cuenta Desc';
+        $params = array($this->usuario);
+        return Database::getRow($sql, $params);
+    }
 }

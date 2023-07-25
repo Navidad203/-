@@ -250,6 +250,17 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'Clave incorrecta';
                 }
                 break;
+                   //grafica de productos
+                    case 'graficoUsuario':
+                    if ($result['dataset'] = $productos->graficoUsuario()) {
+                     $result['status'] = 1;
+                     $result['message'] = 'Existen ' . count($result['dataset']) . ' registros';
+                     } elseif (Database::getException()) {
+                     $result['exception'] = Database::getException();
+                     } else {
+                    $result['exception'] = 'No hay datos registrados';
+                    }
+                    break;
             default:
                 $result['exception'] = 'Acción no disponible dentro de la sesión';
         }
